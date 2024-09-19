@@ -1,17 +1,28 @@
 @mixin flex($fd: row, $ai: center, $jc: center, $fw: nowrap, $g: 0px) {
-    display: flex;
-    flex-flow: $fd $fw;
-    align-items: $ai;
-    justify-content: $jc;
-    gap: $g;
+  display: flex;
+  flex-flow: $fd $fw;
+  align-items: $ai;
+  justify-content: $jc;
+  gap: $g;
 }
 
 @mixin text($s: 16px, $w: 400, $lh: 24px) {
-    font-size: $s;
-    font-weight: $w;
-    line-height: $lh;
+  font-size: $s;
+  font-weight: $w;
+  line-height: $lh;
+}
+
+@mixin button-styles($w, $h, $py, $px) {
+  width: $w;
+  height: $h;
+  padding: $py $px;
 }
 
 @mixin gradient() {
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,90,15,1) 54%, rgba(255,90,15,1) 90%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 90, 15, 1) 54%,
+    rgba(255, 90, 15, 1) 90%
+  );
 }

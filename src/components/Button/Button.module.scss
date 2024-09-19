@@ -1,0 +1,42 @@
+@import '../../scss/utils';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $white-color;
+  background: $main-color;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &.small {
+    @include button-styles(197px, 40px, 10px, 50px);
+  }
+
+  &.medium {
+    @include button-styles(231px, 40px, 10px, 68px);
+  }
+
+  &.big {
+    @include button-styles(414px, 40px, 16px, 26px);
+  }
+
+  &.large {
+    @include button-styles(522px, 50px, 16px, 26px);
+  }
+
+  &:hover {
+    background: $secondary-color;
+    transition: 0.2s ease-in;
+  }
+
+  &:active {
+    @include gradient();
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $grey-color;
+  }
+}
