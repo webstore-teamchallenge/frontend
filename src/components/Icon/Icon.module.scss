@@ -1,0 +1,10 @@
+@import '../../scss/utils';
+
+.icon {
+  &.hover {
+    &:hover {
+      fill: $main-color;
+      transition: 0.2s ease-in;
+    }
+  }
+}
