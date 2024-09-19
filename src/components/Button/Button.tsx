@@ -22,7 +22,7 @@ const Button = ({
 
   return (
     <button className={classNames} disabled={disabled} onClick={onClick} type={type} {...restProps}>
-      {icon} {children}
+      {children} {icon}
     </button>
   );
 };

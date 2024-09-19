@@ -13,7 +13,7 @@
 }
 
 @mixin button-styles($w, $h, $py, $px) {
-  width: $w;
+  min-width: $w;
   height: $h;
   padding: $py $px;
 }
