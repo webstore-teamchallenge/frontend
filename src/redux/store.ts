@@ -2,8 +2,8 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { filtersReducer } from './filters/slice';
 
 import {
-  // persistStore,
-  // persistReducer,
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,20 +11,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 
-// const persistConfig = {
-//   key: 'root',
-//   version: 1,
-//   storage,
-//   whiteList: ['token'],
-// };
+const filtersPersistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+};
 
-// const persistedReducer = persistReducer(persistConfig, authReducer);
+const persistedFiltersReducer = persistReducer(filtersPersistConfig, filtersReducer);
 
 export const store = configureStore({
   reducer: {
-    filters: filtersReducer,
+    filters: persistedFiltersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -34,7 +33,7 @@ export const store = configureStore({
     }),
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
