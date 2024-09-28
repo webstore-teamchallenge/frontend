@@ -1,0 +1,43 @@
+@import '../../scss/utils';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 50px;
+}
+.checkboxLabel {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  &:hover {
+    .customCheckbox {
+      border-color: $main-color;
+    }
+  }
+}
+.checkbox {
+  display: none;
+}
+.icon {
+  display: none;
+  color: $white-color;
+}
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid $black-color;
+}
+
+.checkedCustomCheckbox {
+  background-color: $main-color;
+  border-color: $main-color;
+
+  .icon {
+    display: inline-block;
+  }
+}
