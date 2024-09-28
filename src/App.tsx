@@ -1,19 +1,21 @@
-import Checkbox from './components/Checkbox/Checkbox';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './components/Layout/Layout';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage.tsx'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage.tsx'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage.tsx'));
 
 function App() {
-  const checkboxProps = [
-    { label: 'Option 1', value: 'option1' },
-    { label: 'Option 2', value: 'option2' },
-    { label: 'Option 3', value: 'option3' },
-    { label: 'Option 4', value: 'option4' },
-    { label: 'Option 5', value: 'option5' },
-  ];
-
   return (
-    <>
-      APP
-      <Checkbox props={checkboxProps}></Checkbox>
-    </>
+    <Layout>
+      <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Layout>
   );
 }
 
